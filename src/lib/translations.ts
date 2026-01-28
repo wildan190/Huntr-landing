@@ -7,6 +7,10 @@ export const translations = {
         header: {
           solutions: 'Solutions',
           features: 'Features',
+          insight: 'Insight',
+          useCase: 'Use Case',
+          news: 'News',
+          article: 'Article',
           contact: 'Contact',
           requestDemo: 'Request a Demo',
           openMenu: 'Open menu',
@@ -64,6 +68,10 @@ export const translations = {
         header: {
           solutions: 'Solusi',
           features: 'Fitur',
+          insight: 'Wawasan',
+          useCase: 'Studi Kasus',
+          news: 'Berita',
+          article: 'Artikel',
           contact: 'Kontak',
           requestDemo: 'Minta Demo',
           openMenu: 'Buka menu',
