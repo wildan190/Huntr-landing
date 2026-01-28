@@ -4,10 +4,15 @@ import Link from "next/link";
 import { HuntrLogo } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Twitter, Linkedin, Facebook } from 'lucide-react';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { LanguageContext } from "@/context/language-context";
+import { translations } from "@/lib/translations";
 
 export function Footer() {
   const [currentYear, setCurrentYear] = useState<number | null>(null);
+  const context = useContext(LanguageContext);
+  const lang = context?.language || 'en';
+  const t = translations[lang].footer;
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
@@ -22,7 +27,7 @@ export function Footer() {
             <span className="font-bold font-headline">Huntr</span>
           </div>
           <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} Huntr Inc. All rights reserved.
+            &copy; {currentYear} {t.copy}
           </p>
           <div className="flex gap-2">
             <Button variant="ghost" size="icon" asChild>

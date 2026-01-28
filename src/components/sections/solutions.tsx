@@ -1,32 +1,41 @@
+'use client';
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Cloud, ShoppingCart, Workflow } from "lucide-react";
-
-const solutions = [
-  {
-    icon: <ShoppingCart className="h-8 w-8 text-primary" />,
-    title: "E-Procurement Systems",
-    description: "Streamline your purchasing process with our intuitive e-procurement platform. Gain control over spending and improve efficiency.",
-  },
-  {
-    icon: <Workflow className="h-8 w-8 text-primary" />,
-    title: "E-Supply Chain Management",
-    description: "Optimize your entire supply chain, from sourcing to delivery, with our integrated, cloud-based management system.",
-  },
-  {
-    icon: <Cloud className="h-8 w-8 text-primary" />,
-    title: "Cloud-Based Solutions",
-    description: "Access our powerful tools anytime, anywhere. Our secure cloud infrastructure ensures reliability and scalability for your business.",
-  },
-];
+import { useContext } from "react";
+import { LanguageContext } from "@/context/language-context";
+import { translations } from "@/lib/translations";
 
 export function Solutions() {
+  const context = useContext(LanguageContext);
+  const lang = context?.language || 'en';
+  const t = translations[lang].solutions;
+
+  const solutions = [
+    {
+      icon: <ShoppingCart className="h-8 w-8 text-primary" />,
+      title: t.card1Title,
+      description: t.card1Description,
+    },
+    {
+      icon: <Workflow className="h-8 w-8 text-primary" />,
+      title: t.card2Title,
+      description: t.card2Description,
+    },
+    {
+      icon: <Cloud className="h-8 w-8 text-primary" />,
+      title: t.card3Title,
+      description: t.card3Description,
+    },
+  ];
+
   return (
     <section id="solutions" className="py-16 sm:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-4xl font-headline font-bold">Comprehensive Supply Chain Solutions</h2>
+          <h2 className="text-3xl sm:text-4xl font-headline font-bold">{t.title}</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            We provide a fast, secure, and well-structured supply chain ecosystem designed for the modern enterprise.
+            {t.subtitle}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

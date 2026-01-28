@@ -1,36 +1,45 @@
-import { BarChart3, CreditCard, FileText, Users } from "lucide-react";
+'use client';
 
-const features = [
-  {
-    icon: <BarChart3 className="h-10 w-10 text-primary" />,
-    title: "Reporting & Spend Analysis",
-    description: "Utilize our business intelligence tools for in-depth spend analysis, strategic sourcing, TCO, and GPO systems.",
-  },
-  {
-    icon: <CreditCard className="h-10 w-10 text-primary" />,
-    title: "Secure Payments (HUNTR Pay)",
-    description: "Our flexible payment system partners with multiple banks to provide reliable and secure transaction processing.",
-  },
-  {
-    icon: <Users className="h-10 w-10 text-primary" />,
-    title: "Vendor Management",
-    description: "Manage your vendors effectively to ensure a secure and reliable supply chain with clearly defined service levels.",
-  },
-  {
-    icon: <FileText className="h-10 w-10 text-primary" />,
-    title: "Contract Management",
-    description: "Centralize contract storage, track key milestones, and ensure compliance across all your agreements.",
-  },
-];
+import { BarChart3, CreditCard, FileText, Users } from "lucide-react";
+import { useContext } from "react";
+import { LanguageContext } from "@/context/language-context";
+import { translations } from "@/lib/translations";
 
 export function Features() {
+  const context = useContext(LanguageContext);
+  const lang = context?.language || 'en';
+  const t = translations[lang].features;
+
+  const features = [
+    {
+      icon: <BarChart3 className="h-10 w-10 text-primary" />,
+      title: t.feature1Title,
+      description: t.feature1Description,
+    },
+    {
+      icon: <CreditCard className="h-10 w-10 text-primary" />,
+      title: t.feature2Title,
+      description: t.feature2Description,
+    },
+    {
+      icon: <Users className="h-10 w-10 text-primary" />,
+      title: t.feature3Title,
+      description: t.feature3Description,
+    },
+    {
+      icon: <FileText className="h-10 w-10 text-primary" />,
+      title: t.feature4Title,
+      description: t.feature4Description,
+    },
+  ];
+
   return (
     <section id="features" className="py-16 sm:py-24">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-4xl font-headline font-bold">Powerful Features for Your Business</h2>
+          <h2 className="text-3xl sm:text-4xl font-headline font-bold">{t.title}</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Everything you need to optimize procurement and manage your supply chain efficiently.
+            {t.subtitle}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

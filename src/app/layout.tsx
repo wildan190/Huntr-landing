@@ -1,7 +1,11 @@
-import type {Metadata} from 'next';
+'use client';
+import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Lato, Montserrat } from 'next/font/google';
+import { LanguageProvider, LanguageContext } from '@/context/language-context';
+import { useContext, useEffect } from 'react';
+import { translations } from '@/lib/translations';
 
 const lato = Lato({
   subsets: ['latin'],
@@ -15,9 +19,25 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 });
 
-export const metadata: Metadata = {
-  title: 'Huntr Integrated Business Platform',
-  description: 'A comprehensive technology procurement platform offering e-procurement, e-supply chain, spend analysis, and secure payment solutions.',
+const MainContent = ({ children }: { children: React.ReactNode }) => {
+  const context = useContext(LanguageContext);
+  const lang = context?.language || 'en';
+  
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    document.title = translations[lang].metadata.title;
+    
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.setAttribute('name', 'description');
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', translations[lang].metadata.description);
+
+  }, [lang]);
+  
+  return <>{children}</>;
 };
 
 export default function RootLayout({
@@ -29,8 +49,10 @@ export default function RootLayout({
     <html lang="en" className={`${lato.variable} ${montserrat.variable} !scroll-smooth`}>
       <head />
       <body className="font-body antialiased">
-        {children}
-        <Toaster />
+        <LanguageProvider>
+          <MainContent>{children}</MainContent>
+          <Toaster />
+        </LanguageProvider>
       </body>
     </html>
   );

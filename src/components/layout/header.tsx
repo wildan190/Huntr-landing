@@ -5,14 +5,22 @@ import { Button } from '@/components/ui/button';
 import { HuntrLogo } from '@/components/icons';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
-
-const navLinks = [
-  { href: '/#solutions', label: 'Solutions' },
-  { href: '/#features', label: 'Features' },
-  { href: '/#contact', label: 'Contact' },
-];
+import { useContext } from 'react';
+import { LanguageContext } from '@/context/language-context';
+import { translations } from '@/lib/translations';
+import { LanguageToggle } from '@/components/language-toggle';
 
 export function Header() {
+  const context = useContext(LanguageContext);
+  const lang = context?.language || 'en';
+  const t = translations[lang].header;
+  
+  const navLinks = [
+    { href: '/#solutions', label: t.solutions },
+    { href: '/#features', label: t.features },
+    { href: '/#contact', label: t.contact },
+  ];
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center px-4">
@@ -36,14 +44,15 @@ export function Header() {
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
+          <LanguageToggle />
           <Button asChild>
-            <Link href="/#contact">Request a Demo</Link>
+            <Link href="/#contact">{t.requestDemo}</Link>
           </Button>
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="md:hidden">
                 <Menu className="h-4 w-4" />
-                <span className="sr-only">Open menu</span>
+                <span className="sr-only">{t.openMenu}</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
