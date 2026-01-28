@@ -2,7 +2,6 @@ import { Header } from "@/components/landing/header";
 import { Hero } from "@/components/landing/hero";
 import { Solutions } from "@/components/landing/solutions";
 import { Features } from "@/components/landing/features";
-import { SuccessStories } from "@/components/landing/success-stories";
 import { Contact } from "@/components/landing/contact";
 import { Footer } from "@/components/landing/footer";
 
@@ -14,7 +13,6 @@ export default function Home() {
         <Hero />
         <Solutions />
         <Features />
-        <SuccessStories />
         <Contact />
       </main>
       <Footer />
