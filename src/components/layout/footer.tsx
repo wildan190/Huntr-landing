@@ -1,10 +1,17 @@
+'use client';
+
 import Link from "next/link";
 import { HuntrLogo } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Twitter, Linkedin, Facebook } from 'lucide-react';
+import { useEffect, useState } from "react";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer className="border-t">
