@@ -1,9 +1,9 @@
-import { Header } from "@/components/landing/header";
-import { Hero } from "@/components/landing/hero";
-import { Solutions } from "@/components/landing/solutions";
-import { Features } from "@/components/landing/features";
-import { Contact } from "@/components/landing/contact";
-import { Footer } from "@/components/landing/footer";
+import { Header } from "@/components/layout/header";
+import { Hero } from "@/components/sections/hero";
+import { Solutions } from "@/components/sections/solutions";
+import { Features } from "@/components/sections/features";
+import { Contact } from "@/components/sections/contact";
+import { Footer } from "@/components/layout/footer";
 
 export default function Home() {
   return (
