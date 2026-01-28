@@ -7,9 +7,9 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 
 const navLinks = [
-  { href: '#solutions', label: 'Solutions' },
-  { href: '#features', label: 'Features' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#solutions', label: 'Solutions' },
+  { href: '/#features', label: 'Features' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 export function Header() {
@@ -37,7 +37,7 @@ export function Header() {
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
           <Button asChild>
-            <Link href="#contact">Request a Demo</Link>
+            <Link href="/#contact">Request a Demo</Link>
           </Button>
           <Sheet>
             <SheetTrigger asChild>
