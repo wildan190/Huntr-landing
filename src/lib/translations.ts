@@ -5,8 +5,6 @@ export const translations = {
             description: 'A comprehensive technology procurement platform offering e-procurement, e-supply chain, spend analysis, and secure payment solutions.',
         },
         header: {
-          solutions: 'Solutions',
-          features: 'Features',
           insight: 'Insight',
           useCase: 'Use Case',
           news: 'News',
@@ -70,8 +68,6 @@ export const translations = {
             description: 'Platform pengadaan teknologi komprehensif yang menawarkan e-procurement, e-supply chain, analisis pengeluaran, dan solusi pembayaran yang aman.',
         },
         header: {
-          solutions: 'Solusi',
-          features: 'Fitur',
           insight: 'Wawasan',
           useCase: 'Studi Kasus',
           news: 'Berita',
