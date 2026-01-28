@@ -75,7 +75,7 @@ export function Header() {
             </DropdownMenu>
 
             <Link
-              href="/#contact"
+              href="/contact"
               className="font-medium text-foreground/60 transition-colors hover:text-foreground/80"
             >
               {t.contact}
@@ -85,7 +85,7 @@ export function Header() {
         <div className="flex flex-1 items-center justify-end space-x-2">
           <LanguageToggle />
           <Button asChild>
-            <Link href="/#contact">{t.requestDemo}</Link>
+            <Link href="/contact">{t.requestDemo}</Link>
           </Button>
           <Sheet>
             <SheetTrigger asChild>
@@ -133,7 +133,7 @@ export function Header() {
                 </div>
 
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   className="pt-2 font-medium text-foreground/60 transition-colors hover:text-foreground/80"
                 >
                   {t.contact}
