@@ -9,6 +9,7 @@ import { LanguageContext } from "@/context/language-context";
 import { translations } from "@/lib/translations";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Eye, Target } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const mainImage = PlaceHolderImages.find(p => p.id === 'our-company-main');
 
@@ -16,6 +17,28 @@ export default function OurCompanyPage() {
   const context = useContext(LanguageContext);
   const lang = context?.language || 'en';
   const t = translations[lang].ourCompany;
+
+  // If translations are not ready, render a loading state or nothing
+  if (!t) {
+    return (
+      <div className="flex flex-col min-h-dvh bg-background">
+        <Header />
+        <main className="flex-1 container mx-auto px-4 py-8 space-y-8">
+          <Skeleton className="h-12 w-1/2" />
+          <Skeleton className="h-8 w-3/4" />
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-4">
+              <Skeleton className="h-8 w-1/4" />
+              <Skeleton className="h-20 w-full" />
+              <Skeleton className="h-20 w-full" />
+            </div>
+            <Skeleton className="h-80 w-full" />
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col min-h-dvh bg-background">
