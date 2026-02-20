@@ -12,6 +12,7 @@ import { Eye, Target } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const mainImage = PlaceHolderImages.find(p => p.id === 'our-company-main');
+const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background');
 
 export default function OurCompanyPage() {
   const context = useContext(LanguageContext);
@@ -45,12 +46,22 @@ export default function OurCompanyPage() {
       <Header />
       <main className="flex-1 -mt-24">
         {/* Hero Section */}
-        <section className="relative py-24 sm:py-32 bg-secondary">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">
+        <section className="relative py-24 sm:py-32">
+          {heroImage && (
+            <Image
+              src={heroImage.imageUrl}
+              alt={heroImage.description}
+              fill
+              className="object-cover"
+              data-ai-hint={heroImage.imageHint}
+            />
+          )}
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="relative z-10 container mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold font-headline text-white">
               {t.title}
             </h1>
-            <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
+            <p className="mt-4 max-w-3xl mx-auto text-lg text-white/80">
               {t.subtitle}
             </p>
           </div>
