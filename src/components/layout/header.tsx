@@ -48,8 +48,8 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container relative flex h-14 items-center">
+    <header className="sticky top-0 z-50 w-full p-2">
+      <div className="container relative flex h-14 items-center rounded-lg border border-border/40 bg-background/95 px-4 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-background/60">
         
         {/* Left side: Logo & Mobile Menu Trigger */}
         <div className="flex items-center">
