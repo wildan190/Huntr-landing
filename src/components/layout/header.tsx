@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { HuntrLogo } from '@/components/icons';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -22,11 +23,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Separator } from '@/components/ui/separator';
+import { cn } from '@/lib/utils';
 
 export function Header() {
   const context = useContext(LanguageContext);
   const lang = context?.language || 'en';
   const t = translations[lang].header;
+  const pathname = usePathname();
 
   const navLinks = [
     {
@@ -72,26 +75,31 @@ export function Header() {
 
               <div className="flex h-[calc(100%-5rem)] flex-col">
                 <div className="flex flex-col gap-2">
-                  <Link href="/" className="px-2 py-2 font-medium text-foreground/80 transition-colors hover:text-foreground">
+                  <Link href="/" className={cn("px-2 py-2 font-medium transition-colors hover:text-foreground", pathname === "/" ? "text-foreground" : "text-foreground/80")}>
                       {t.home}
-                    </Link>
+                  </Link>
                   <Accordion type="single" collapsible className="w-full">
-                    {navLinks.map((link) => (
-                      <AccordionItem value={link.title} key={link.title} className="border-b-0">
-                        <AccordionTrigger className="px-2 py-2 font-medium text-foreground/80 hover:no-underline hover:text-foreground">{link.title}</AccordionTrigger>
-                        <AccordionContent>
-                          <div className="flex flex-col gap-4 pl-6 pt-2">
-                            {link.items.map((item) => (
-                              <Link key={item.href} href={item.href} className="text-foreground/60 hover:text-foreground">
-                                  {item.title}
-                                </Link>
-                            ))}
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
+                    {navLinks.map((link) => {
+                      const isActive = link.items.some((item) => pathname.startsWith(item.href));
+                      return (
+                        <AccordionItem value={link.title} key={link.title} className="border-b-0">
+                          <AccordionTrigger className={cn("px-2 py-2 font-medium hover:no-underline hover:text-foreground", isActive ? "text-foreground" : "text-foreground/80")}>
+                            {link.title}
+                          </AccordionTrigger>
+                          <AccordionContent>
+                            <div className="flex flex-col gap-4 pl-6 pt-2">
+                              {link.items.map((item) => (
+                                <Link key={item.href} href={item.href} className={cn("transition-colors hover:text-foreground", pathname.startsWith(item.href) ? "text-foreground" : "text-foreground/60")}>
+                                    {item.title}
+                                  </Link>
+                              ))}
+                            </div>
+                          </AccordionContent>
+                        </AccordionItem>
+                      )
+                    })}
                   </Accordion>
-                  <Link href="/contact" className="px-2 py-2 font-medium text-foreground/80 transition-colors hover:text-foreground">
+                  <Link href="/contact" className={cn("px-2 py-2 font-medium transition-colors hover:text-foreground", pathname === "/contact" ? "text-foreground" : "text-foreground/80")}>
                     {t.contact}
                   </Link>
                 </div>
@@ -111,28 +119,30 @@ export function Header() {
         <nav className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-6 text-sm md:flex">
           <Link
             href="/"
-            className="font-medium text-foreground/80 transition-colors hover:text-foreground"
+            className={cn("font-medium transition-colors hover:text-foreground", pathname === "/" ? "text-foreground" : "text-foreground/80")}
           >
             {t.home}
           </Link>
-          {navLinks.map((link) => (
+          {navLinks.map((link) => {
+            const isActive = link.items.some(item => pathname.startsWith(item.href));
+            return (
              <DropdownMenu key={link.title}>
-              <DropdownMenuTrigger className="flex items-center gap-1 font-medium text-foreground/80 transition-colors hover:text-foreground focus:outline-none">
+              <DropdownMenuTrigger className={cn("flex items-center gap-1 font-medium transition-colors hover:text-foreground focus:outline-none", isActive ? "text-foreground" : "text-foreground/80")}>
                 {link.title}
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="center">
                 {link.items.map((item) => (
-                  <DropdownMenuItem key={item.href} asChild>
+                  <DropdownMenuItem key={item.href} asChild className={pathname.startsWith(item.href) ? 'bg-accent' : ''}>
                     <Link href={item.href}>{item.title}</Link>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-          ))}
+          )})}
            <Link
             href="/contact"
-            className="font-medium text-foreground/80 transition-colors hover:text-foreground"
+            className={cn("font-medium transition-colors hover:text-foreground", pathname === "/contact" ? "text-foreground" : "text-foreground/80")}
           >
             {t.contact}
           </Link>
