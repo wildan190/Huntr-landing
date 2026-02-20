@@ -45,6 +45,21 @@ export const translations = {
           feature4Title: 'Contract Management',
           feature4Description: 'Centralize contract storage, track key milestones, and ensure compliance across all your agreements.',
         },
+        testimonials: {
+          title: 'Trusted by Industry Leaders',
+          subtitle: 'Hear what our clients have to say about their success with Huntr.',
+          testimonial1: 'Huntr has completely transformed our procurement process. The efficiency and cost savings are beyond anything we expected. The spend analysis tools are a game-changer.',
+          client1Name: 'Jane Doe',
+          client1Title: 'CFO, TechCorp',
+          testimonial2: 'The e-supply chain management system is incredibly robust and easy to use. Our team was able to onboard quickly, and we saw immediate improvements in our logistics and vendor communication.',
+          client2Name: 'John Smith',
+          client2Title: 'COO, Innovate Inc.',
+        },
+        cta: {
+          title: 'Ready to Revolutionize Your Procurement?',
+          subtitle: 'Join the growing number of businesses transforming their supply chain with Huntr. Request a demo today to see our platform in action.',
+          button: 'Request a Demo',
+        },
         contact: {
           title: 'Request a Demo',
           description: 'Interested in how Huntr can transform your business? Fill out the form below.',
@@ -130,6 +145,21 @@ export const translations = {
           feature3Description: 'Kelola vendor Anda secara efektif untuk memastikan rantai pasokan yang aman dan andal dengan tingkat layanan yang ditentukan dengan jelas.',
           feature4Title: 'Manajemen Kontrak',
           feature4Description: 'Pusatkan penyimpanan kontrak, lacak tonggak penting, dan pastikan kepatuhan di semua perjanjian Anda.',
+        },
+        testimonials: {
+          title: 'Dipercaya oleh Pemimpin Industri',
+          subtitle: 'Dengarkan apa yang klien kami katakan tentang kesuksesan mereka bersama Huntr.',
+          testimonial1: 'Huntr telah sepenuhnya mengubah proses pengadaan kami. Efisiensi dan penghematan biaya melampaui semua yang kami harapkan. Alat analisis pengeluaran adalah pengubah permainan.',
+          client1Name: 'Jane Doe',
+          client1Title: 'CFO, TechCorp',
+          testimonial2: 'Sistem manajemen e-supply chain sangat kuat dan mudah digunakan. Tim kami dapat beradaptasi dengan cepat, dan kami melihat peningkatan langsung dalam logistik dan komunikasi vendor kami.',
+          client2Name: 'John Smith',
+          client2Title: 'COO, Innovate Inc.',
+        },
+        cta: {
+          title: 'Siap Merevolusi Pengadaan Anda?',
+          subtitle: 'Bergabunglah dengan semakin banyak bisnis yang mengubah rantai pasokan mereka dengan Huntr. Minta demo hari ini untuk melihat platform kami beraksi.',
+          button: 'Minta Demo',
         },
         contact: {
           title: 'Minta Demo',
