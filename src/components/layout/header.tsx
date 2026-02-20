@@ -15,78 +15,90 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Separator } from '@/components/ui/separator';
 
 export function Header() {
   const context = useContext(LanguageContext);
   const lang = context?.language || 'en';
   const t = translations[lang].header;
 
+  const navLinks = [
+    {
+      title: t.insight,
+      items: [
+        { href: '/use-case', title: t.useCase },
+        { href: '/news', title: t.news },
+        { href: '/article', title: t.article },
+      ],
+    },
+    {
+      title: t.about,
+      items: [
+        { href: '/our-company', title: t.ourCompany },
+        { href: '/our-team', title: t.ourTeam },
+        { href: '/privacy-policy', title: t.privacyPolicy },
+      ]
+    }
+  ];
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 max-w-screen-2xl items-center px-6">
-        <div className="mr-4 flex items-center">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+      <div className="container flex h-14 items-center justify-between">
+        {/* === Left side: Logo & Nav === */}
+        <div className="flex items-center gap-6">
+          <Link href="/" className="mr-4 flex items-center space-x-2">
             <HuntrLogo className="h-6 w-6 text-primary" />
             <span className="font-bold sm:inline-block font-headline">
               Huntr
             </span>
           </Link>
           <nav className="hidden items-center gap-6 text-sm md:flex">
-            <Link
+             <Link
               href="/"
-              className="font-medium text-foreground/60 transition-colors hover:text-foreground/80"
+              className="font-medium text-foreground/80 transition-colors hover:text-foreground"
             >
               {t.home}
             </Link>
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1 font-medium text-foreground/60 transition-colors hover:text-foreground/80 focus:outline-none">
-                {t.insight}
-                <ChevronDown className="h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start">
-                <DropdownMenuItem asChild>
-                  <Link href="/use-case">{t.useCase}</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/news">{t.news}</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/article">{t.article}</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1 font-medium text-foreground/60 transition-colors hover:text-foreground/80 focus:outline-none">
-                {t.about}
-                <ChevronDown className="h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start">
-                <DropdownMenuItem asChild>
-                  <Link href="/our-company">{t.ourCompany}</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/our-team">{t.ourTeam}</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/privacy-policy">{t.privacyPolicy}</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <Link
+            {navLinks.map((link) => (
+               <DropdownMenu key={link.title}>
+                <DropdownMenuTrigger className="flex items-center gap-1 font-medium text-foreground/80 transition-colors hover:text-foreground focus:outline-none">
+                  {link.title}
+                  <ChevronDown className="h-4 w-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start">
+                  {link.items.map((item) => (
+                    <DropdownMenuItem key={item.href} asChild>
+                      <Link href={item.href}>{item.title}</Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ))}
+             <Link
               href="/contact"
-              className="font-medium text-foreground/60 transition-colors hover:text-foreground/80"
+              className="font-medium text-foreground/80 transition-colors hover:text-foreground"
             >
               {t.contact}
             </Link>
           </nav>
         </div>
-        <div className="flex flex-1 items-center justify-end space-x-2">
-          <LanguageToggle />
-          <Button asChild>
-            <Link href="/contact">{t.requestDemo}</Link>
-          </Button>
+        
+        {/* === Right side: Actions & Mobile Menu === */}
+        <div className="flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
+             <LanguageToggle />
+             <Button asChild>
+              <Link href="/contact">{t.requestDemo}</Link>
+            </Button>
+          </div>
+         
+          {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="md:hidden">
@@ -94,51 +106,48 @@ export function Header() {
                 <span className="sr-only">{t.openMenu}</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
-              <Link href="/" className="mr-6 flex items-center space-x-2">
-                <HuntrLogo className="h-6 w-6 text-primary" />
-                <span className="font-bold font-headline">Huntr</span>
-              </Link>
-              <div className="mt-6 flex flex-col gap-4">
-                <Link
-                  href="/"
-                  className="font-medium text-foreground/60 transition-colors hover:text-foreground/80"
-                >
-                  {t.home}
+            <SheetContent side="right" className="w-full max-w-sm">
+              <div className="flex items-center justify-between">
+                <Link href="/" className="flex items-center space-x-2">
+                  <HuntrLogo className="h-6 w-6 text-primary" />
+                  <span className="font-bold font-headline">Huntr</span>
                 </Link>
-                <div className="flex flex-col gap-3 pt-2">
-                  <h4 className="font-semibold text-foreground/80">{t.insight}</h4>
-                  <Link href="/use-case" className="pl-2 font-medium text-foreground/60 transition-colors hover:text-foreground/80">
-                    {t.useCase}
-                  </Link>
-                  <Link href="/news" className="pl-2 font-medium text-foreground/60 transition-colors hover:text-foreground/80">
-                    {t.news}
-                  </Link>
-                  <Link href="/article" className="pl-2 font-medium text-foreground/60 transition-colors hover:text-foreground/80">
-                    {t.article}
-                  </Link>
-                </div>
-
-                <div className="flex flex-col gap-3 pt-2">
-                  <h4 className="font-semibold text-foreground/80">{t.about}</h4>
-                  <Link href="/our-company" className="pl-2 font-medium text-foreground/60 transition-colors hover:text-foreground/80">
-                    {t.ourCompany}
-                  </Link>
-                  <Link href="/our-team" className="pl-2 font-medium text-foreground/60 transition-colors hover:text-foreground/80">
-                    {t.ourTeam}
-                  </Link>
-                  <Link href="/privacy-policy" className="pl-2 font-medium text-foreground/60 transition-colors hover:text-foreground/80">
-                    {t.privacyPolicy}
-                  </Link>
-                </div>
-
-                <Link
-                  href="/contact"
-                  className="pt-2 font-medium text-foreground/60 transition-colors hover:text-foreground/80"
-                >
-                  {t.contact}
-                </Link>
+                <LanguageToggle />
               </div>
+              <Separator className="my-4"/>
+
+              <div className="flex h-[calc(100%-5rem)] flex-col">
+                <div className="flex flex-col gap-2">
+                  <Link href="/" className="px-2 py-2 font-medium text-foreground/80 transition-colors hover:text-foreground">
+                      {t.home}
+                    </Link>
+                  <Accordion type="single" collapsible className="w-full">
+                    {navLinks.map((link) => (
+                      <AccordionItem value={link.title} key={link.title} className="border-b-0">
+                        <AccordionTrigger className="px-2 py-2 font-medium text-foreground/80 hover:no-underline hover:text-foreground">{link.title}</AccordionTrigger>
+                        <AccordionContent>
+                          <div className="flex flex-col gap-4 pl-6 pt-2">
+                            {link.items.map((item) => (
+                              <Link key={item.href} href={item.href} className="text-foreground/60 hover:text-foreground">
+                                  {item.title}
+                                </Link>
+                            ))}
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                  <Link href="/contact" className="px-2 py-2 font-medium text-foreground/80 transition-colors hover:text-foreground">
+                    {t.contact}
+                  </Link>
+                </div>
+                <div className="mt-auto">
+                   <Button asChild className="w-full">
+                    <Link href="/contact">{t.requestDemo}</Link>
+                  </Button>
+                </div>
+              </div>
+
             </SheetContent>
           </Sheet>
         </div>
