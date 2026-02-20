@@ -49,10 +49,10 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full p-2">
-      <div className="container flex h-14 items-center justify-between rounded-lg border border-border/40 bg-background/95 px-4 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="relative mx-auto flex h-14 max-w-screen-xl items-center justify-between rounded-lg border border-border/40 bg-background/95 px-4 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-background/60">
         
         {/* Left side: Logo & Mobile Menu Trigger */}
-        <div className="flex items-center justify-start md:w-1/3">
+        <div className="flex items-center">
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="md:hidden mr-4">
@@ -113,7 +113,7 @@ export function Header() {
         </div>
 
         {/* Center Nav (Desktop) */}
-        <nav className="hidden items-center justify-center md:flex gap-6 text-sm">
+        <nav className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-6 text-sm md:flex">
           <Link
             href="/"
             className="font-medium text-foreground/80 transition-colors hover:text-foreground"
@@ -144,7 +144,7 @@ export function Header() {
         </nav>
 
         {/* Right Side: Actions */}
-        <div className="flex items-center justify-end gap-2 md:w-1/3">
+        <div className="flex items-center justify-end gap-2">
           <div className="hidden md:flex items-center gap-2">
              <LanguageToggle />
              <Button asChild>
