@@ -17,6 +17,24 @@
       "description": "A team of professionals collaborating around a blueprint, symbolizing planning and vision.",
       "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxidXNpbmVzcyUyMHRlYW0lMjBjb2xsYWJvcmF0aW9ufGVufDB8fHx8MTcxMzI0NzU0NHww&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "business team"
+    },
+    {
+      "id": "use-case-eprocurement",
+      "description": "A person analyzes procurement data on a laptop, showing charts and graphs.",
+      "imageUrl": "https://images.unsplash.com/photo-1556740758-90de374c12ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwcm9jdXJlbWVudHxlbnwwfHx8fDE3MjE0MjU4ODd8MA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "digital procurement"
+    },
+    {
+      "id": "use-case-esupplychain",
+      "description": "A modern warehouse with automated logistics and inventory management.",
+      "imageUrl": "https://images.unsplash.com/photo-1569982175971-d92b01cf8694?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsb2dpc3RpY3N8ZW58MHx8fHwxNzIxNDI1OTI5fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "logistics warehouse"
+    },
+    {
+      "id": "use-case-cloud",
+      "description": "Abstract representation of cloud computing with interconnected nodes and data streams.",
+      "imageUrl": "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMHNlcnZlcnN8ZW58MHx8fHwxNzIxNDI1OTYwfDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "cloud servers"
     }
   ]
 }
