@@ -15,7 +15,6 @@ export const translations = {
           ourTeam: 'Our Team',
           privacyPolicy: 'Privacy Policy',
           contact: 'Contact',
-          requestDemo: 'Request a Demo',
           openMenu: 'Open menu',
         },
         hero: {
@@ -59,6 +58,18 @@ export const translations = {
           messagePlaceholder: 'Tell us about your needs...',
           submitButton: 'Send Message',
         },
+        ourCompany: {
+          title: 'Pioneering the Future of Procurement',
+          subtitle: 'Huntr was founded on a simple yet powerful idea: to revolutionize the complex world of technology procurement through innovation, clarity, and unwavering partnership.',
+          visionMissionTitle: 'Our Vision & Mission',
+          visionTitle: 'Our Vision',
+          visionText: 'To become the world\'s most trusted and intelligent integrated business platform, creating a seamless ecosystem for global commerce.',
+          missionTitle: 'Our Mission',
+          missionText: 'To empower enterprises with streamlined, secure, and data-driven procurement solutions that unlock strategic value and foster sustainable growth.',
+          historyTitle: 'Our Journey',
+          historyText1: 'From our beginnings as a small team of industry experts frustrated with inefficient procurement processes, Huntr has grown into a comprehensive platform serving businesses worldwide. We saw the need for a unified solution that combines e-procurement, supply chain management, and secure payments.',
+          historyText2: 'Every milestone, from the launch of our first module to the integration of HUNTR Pay, has been driven by our commitment to solving real-world challenges for our clients. Our journey is a testament to the power of a clear vision and relentless innovation.'
+        },
         footer: {
           copy: 'Huntr Inc. All rights reserved.',
         },
@@ -79,7 +90,6 @@ export const translations = {
           ourTeam: 'Tim Kami',
           privacyPolicy: 'Kebijakan Privasi',
           contact: 'Kontak',
-          requestDemo: 'Minta Demo',
           openMenu: 'Buka menu',
         },
         hero: {
@@ -122,6 +132,18 @@ export const translations = {
           messageLabel: 'Pesan',
           messagePlaceholder: 'Beri tahu kami tentang kebutuhan Anda...',
           submitButton: 'Kirim Pesan',
+        },
+        ourCompany: {
+          title: 'Merintis Masa Depan Pengadaan',
+          subtitle: 'Huntr didirikan berdasarkan ide sederhana namun kuat: merevolusi dunia pengadaan teknologi yang kompleks melalui inovasi, kejelasan, dan kemitraan yang tak tergoyahkan.',
+          visionMissionTitle: 'Visi & Misi Kami',
+          visionTitle: 'Visi Kami',
+          visionText: 'Menjadi platform bisnis terintegrasi yang paling tepercaya dan cerdas di dunia, menciptakan ekosistem yang mulus untuk perdagangan global.',
+          missionTitle: 'Misi Kami',
+          missionText: 'Memberdayakan perusahaan dengan solusi pengadaan yang efisien, aman, dan berbasis data yang membuka nilai strategis dan mendorong pertumbuhan berkelanjutan.',
+          historyTitle: 'Perjalanan Kami',
+          historyText1: 'Dari awal kami sebagai tim kecil ahli industri yang frustrasi dengan proses pengadaan yang tidak efisien, Huntr telah berkembang menjadi platform komprehensif yang melayani bisnis di seluruh dunia. Kami melihat perlunya solusi terpadu yang menggabungkan e-procurement, manajemen rantai pasokan, dan pembayaran yang aman.',
+          historyText2: 'Setiap tonggak sejarah, mulai dari peluncuran modul pertama kami hingga integrasi HUNTR Pay, telah didorong oleh komitmen kami untuk memecahkan tantangan dunia nyata bagi klien kami. Perjalanan kami adalah bukti kekuatan visi yang jelas dan inovasi tanpa henti.'
         },
         footer: {
           copy: 'Huntr Inc. Hak cipta dilindungi undang-undang.',
