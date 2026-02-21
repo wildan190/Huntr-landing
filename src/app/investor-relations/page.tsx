@@ -26,7 +26,7 @@ export default function InvestorRelationsPage() {
         <PageHero title={headerT.investorRelations} subtitle={pageT.description} />
         <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
+            <div className="max-w-3xl mx-auto text-center animate-in fade-in zoom-in-95 duration-700">
               <h2 className="text-3xl font-bold font-headline">For Our Investors</h2>
               <p className="mt-4 text-lg text-muted-foreground">
                 {pageT.contentPlaceholder}

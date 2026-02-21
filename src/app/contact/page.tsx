@@ -39,7 +39,7 @@ export default function ContactPage() {
         >
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
           <div className="relative container mx-auto px-4">
-            <div className="max-w-xl mx-auto">
+            <div className="max-w-xl mx-auto animate-in fade-in zoom-in-95 duration-700">
               <Card className="bg-black/20 backdrop-blur-md border-white/10">
                 <CardContent className="pt-6">
                   <form className="space-y-4">

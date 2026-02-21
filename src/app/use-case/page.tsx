@@ -92,7 +92,7 @@ export default function UseCasePage() {
               </TabsList>
               
               {useCases.map((useCase) => (
-                <TabsContent value={useCase.value} key={useCase.value}>
+                <TabsContent value={useCase.value} key={useCase.value} className="data-[state=active]:animate-in data-[state=active]:fade-in-50 data-[state=active]:duration-500">
                   <Card className="bg-black/20 backdrop-blur-md border-white/10">
                     <CardContent className="p-6">
                       <div className="grid md:grid-cols-2 gap-8 items-center">

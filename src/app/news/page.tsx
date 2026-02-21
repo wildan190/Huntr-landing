@@ -21,7 +21,7 @@ export default function NewsPage() {
   return (
     <div className="flex flex-col min-h-dvh bg-background">
       <Header />
-      <main className="flex-1 container mx-auto px-4 py-8">
+      <main className="flex-1 container mx-auto px-4 py-8 animate-in fade-in duration-500">
         <h1 className="text-4xl font-bold font-headline">{headerT.news}</h1>
         <p className="mt-4 text-lg text-muted-foreground">
           {pageT.contentPlaceholder}

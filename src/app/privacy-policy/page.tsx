@@ -41,7 +41,7 @@ export default function PrivacyPolicyPage() {
         {/* Main Content Section */}
         <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4">
-            <Card className="max-w-4xl mx-auto">
+            <Card className="max-w-4xl mx-auto animate-in fade-in duration-700">
               <CardHeader>
                 <CardTitle className="text-3xl font-headline">{t.title}</CardTitle>
                 <p className="text-sm text-muted-foreground">{t.lastUpdated.replace('[Date]', date)}</p>
