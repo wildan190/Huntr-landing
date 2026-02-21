@@ -12,6 +12,9 @@ import { LanguageContext } from "@/context/language-context";
 import { translations } from "@/lib/translations";
 import { PageHero } from "@/components/sections/page-hero";
 import { useDynamicSeo } from "@/hooks/use-dynamic-seo";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
+
+const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background');
 
 export default function ContactPage() {
   const context = useContext(LanguageContext);
@@ -29,29 +32,51 @@ export default function ContactPage() {
       <main className="flex-1 -mt-24">
         <PageHero title={t.title} subtitle={t.description} />
 
-        <section className="py-16 sm:py-24">
-          <div className="container mx-auto px-4">
+        <section 
+          className="relative py-16 sm:py-24 bg-cover bg-center bg-fixed"
+          style={{ backgroundImage: heroImage ? `url(${heroImage.imageUrl})` : 'none' }}
+          aria-label={heroImage ? heroImage.description : 'Contact form background'}
+        >
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+          <div className="relative container mx-auto px-4">
             <div className="max-w-xl mx-auto">
-              <Card>
+              <Card className="bg-black/20 backdrop-blur-md border-white/10">
                 <CardContent className="pt-6">
                   <form className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="name">{t.nameLabel}</Label>
-                        <Input id="name" placeholder={t.namePlaceholder} />
+                        <Label htmlFor="name" className="text-white">{t.nameLabel}</Label>
+                        <Input 
+                          id="name" 
+                          placeholder={t.namePlaceholder} 
+                          className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/20"
+                        />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email">{t.emailLabel}</Label>
-                        <Input id="email" type="email" placeholder={t.emailPlaceholder} />
+                        <Label htmlFor="email" className="text-white">{t.emailLabel}</Label>
+                        <Input 
+                          id="email" 
+                          type="email" 
+                          placeholder={t.emailPlaceholder} 
+                          className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/20"
+                        />
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="company">{t.companyLabel}</Label>
-                      <Input id="company" placeholder={t.companyPlaceholder} />
+                      <Label htmlFor="company" className="text-white">{t.companyLabel}</Label>
+                      <Input 
+                        id="company" 
+                        placeholder={t.companyPlaceholder} 
+                        className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/20"
+                      />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="message">{t.messageLabel}</Label>
-                      <Textarea id="message" placeholder={t.messagePlaceholder} />
+                      <Label htmlFor="message" className="text-white">{t.messageLabel}</Label>
+                      <Textarea 
+                        id="message" 
+                        placeholder={t.messagePlaceholder} 
+                        className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/20"
+                      />
                     </div>
                     <Button type="submit" className="w-full">{t.submitButton}</Button>
                   </form>
