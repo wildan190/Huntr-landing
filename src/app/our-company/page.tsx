@@ -78,28 +78,32 @@ export default function OurCompanyPage() {
         </section>
 
         {/* Vision & Mission Section */}
-        <section className="py-16 sm:py-24 bg-secondary">
-          <div className="container mx-auto px-4">
+        <section 
+          className="relative py-16 sm:py-24 bg-cover bg-center bg-fixed"
+          style={{backgroundImage: "url('/assets/img/section-bg1.webp')"}}
+        >
+          <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+          <div className="relative container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-3xl sm:text-4xl font-headline font-bold">{t.visionMissionTitle}</h2>
+              <h2 className="text-3xl sm:text-4xl font-headline font-bold text-white">{t.visionMissionTitle}</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <Card>
+              <Card className="bg-black/20 backdrop-blur-md border-white/10">
                 <CardHeader className="flex-row items-center gap-4">
                   <Eye className="h-10 w-10 text-primary" />
-                  <CardTitle className="font-headline">{t.visionTitle}</CardTitle>
+                  <CardTitle className="font-headline text-white">{t.visionTitle}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{t.visionText}</p>
+                  <p className="text-white/80">{t.visionText}</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="bg-black/20 backdrop-blur-md border-white/10">
                 <CardHeader className="flex-row items-center gap-4">
                   <Target className="h-10 w-10 text-primary" />
-                  <CardTitle className="font-headline">{t.missionTitle}</CardTitle>
+                  <CardTitle className="font-headline text-white">{t.missionTitle}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{t.missionText}</p>
+                  <p className="text-white/80">{t.missionText}</p>
                 </CardContent>
               </Card>
             </div>
