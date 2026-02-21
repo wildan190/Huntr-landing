@@ -29,7 +29,7 @@ export function Testimonials() {
 
   return (
     <section id="testimonials" className="relative py-16 sm:py-24 bg-cover bg-center" style={{backgroundImage: "url('/assets/img/section-bg2.webp')"}}>
-      <div className="absolute inset-0 bg-secondary/90 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-secondary/60 backdrop-blur-sm" />
       <div className="relative container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-4xl font-headline font-bold">{t.title}</h2>
