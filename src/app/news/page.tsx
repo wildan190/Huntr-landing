@@ -1,5 +1,12 @@
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import type { Metadata } from 'next';
+import { translations } from "@/lib/translations";
+
+export const metadata: Metadata = {
+  title: translations.en.header.news,
+  description: "Stay updated with the latest news and announcements from Huntr.",
+};
 
 export default function NewsPage() {
   return (

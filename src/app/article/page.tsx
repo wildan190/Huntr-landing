@@ -1,5 +1,12 @@
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import type { Metadata } from 'next';
+import { translations } from "@/lib/translations";
+
+export const metadata: Metadata = {
+  title: translations.en.header.article,
+  description: "Explore informative articles and blog posts from Huntr.",
+};
 
 export default function ArticlePage() {
   return (

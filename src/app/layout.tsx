@@ -1,10 +1,8 @@
-'use client';
 import type { Metadata } from 'next';
-import './globals.css';
-import { Toaster } from "@/components/ui/toaster";
 import { Lato, Montserrat } from 'next/font/google';
-import { LanguageProvider, LanguageContext } from '@/context/language-context';
-import { useContext, useEffect } from 'react';
+import './globals.css';
+import { ClientProviders } from '@/components/client-providers';
+import { StructuredData } from '@/components/seo/structured-data';
 import { translations } from '@/lib/translations';
 
 const lato = Lato({
@@ -19,25 +17,75 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 });
 
-const MainContent = ({ children }: { children: React.ReactNode }) => {
-  const context = useContext(LanguageContext);
-  const lang = context?.language || 'en';
-  
-  useEffect(() => {
-    document.documentElement.lang = lang;
-    document.title = translations[lang].metadata.title;
-    
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement('meta');
-      metaDesc.setAttribute('name', 'description');
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.setAttribute('content', translations[lang].metadata.description);
+const defaultUrl = 'https://huntr.id';
 
-  }, [lang]);
-  
-  return <>{children}</>;
+export const metadata: Metadata = {
+  metadataBase: new URL(defaultUrl),
+  title: {
+    default: translations.en.metadata.title,
+    template: `%s | Huntr`,
+  },
+  description: translations.en.metadata.description,
+  keywords: ['e-procurement', 'e-supply chain', 'spend analysis', 'huntr pay', 'b2b procurement', 'platform pengadaan', 'rantai pasok digital', 'huntr.id'],
+  openGraph: {
+    title: {
+      default: translations.en.metadata.title,
+      template: `%s | Huntr`,
+    },
+    description: translations.en.metadata.description,
+    url: defaultUrl,
+    siteName: 'Huntr',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: {
+      default: translations.en.metadata.title,
+      template: `%s | Huntr`,
+    },
+    description: translations.en.metadata.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Huntr",
+  "url": "https://huntr.id",
+  "logo": "https://huntr.id/huntr-logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+62-21-555-0123",
+    "contactType": "Customer Service",
+    "areaServed": "ID",
+    "availableLanguage": ["English", "Indonesian"]
+  }
+};
+
+const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://huntr.id/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://huntr.id/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
 };
 
 export default function RootLayout({
@@ -47,12 +95,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${lato.variable} ${montserrat.variable} !scroll-smooth`}>
-      <head />
+      <head>
+        <StructuredData data={organizationSchema} />
+        <StructuredData data={websiteSchema} />
+      </head>
       <body className="font-body antialiased">
-        <LanguageProvider>
-          <MainContent>{children}</MainContent>
-          <Toaster />
-        </LanguageProvider>
+        <ClientProviders>
+          {children}
+        </ClientProviders>
       </body>
     </html>
   );
