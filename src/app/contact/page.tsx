@@ -34,13 +34,15 @@ export default function ContactPage() {
         <PageHero title={t.title} subtitle={t.description} />
 
         <section 
-          className="relative py-16 sm:py-24 bg-cover bg-center"
+          className="relative py-16 sm:py-24 bg-cover"
           style={{ 
             backgroundImage: heroImage ? `url(${heroImage.imageUrl})` : 'none',
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center'
           }}
           aria-label={heroImage ? heroImage.description : 'Contact form background'}
         >
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-black/50" />
           <div className="relative container mx-auto px-4">
             <AnimateOnScroll className="max-w-xl mx-auto fade-in zoom-in-95 duration-700">
               <Card className="bg-black/20 border-white/10">

@@ -27,13 +27,15 @@ export function PageHero({ title, subtitle }: PageHeroProps) {
   
   return (
     <section 
-      className="relative pt-40 pb-24 sm:pt-48 sm:pb-32 bg-cover bg-center"
+      className="relative pt-40 pb-24 sm:pt-48 sm:pb-32 bg-cover"
       style={{ 
         backgroundImage: `url(${heroImage.imageUrl})`,
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center'
       }}
       aria-label={heroImage.description}
     >
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/50" />
       <div className="relative z-10 container mx-auto px-4 text-center">
         <h1 className="text-4xl md:text-5xl font-bold font-headline text-white">
           {title}
