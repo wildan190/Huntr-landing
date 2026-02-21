@@ -39,19 +39,19 @@
     {
       "id": "solution-eprocurement",
       "description": "Streamlined procurement process.",
-      "imageUrl": "/assets/img/huntr-asset1.jpg",
+      "imageUrl": "/assets/img/huntr-asset1.webp",
       "imageHint": "digital procurement"
     },
     {
       "id": "solution-esupplychain",
       "description": "Efficient supply chain and expedition services.",
-      "imageUrl": "/assets/img/huntr-asset2.jpg",
+      "imageUrl": "/assets/img/huntr-asset2.webp",
       "imageHint": "logistics expedition"
     },
     {
       "id": "solution-crowdbuy",
       "description": "Collaborative group buying.",
-      "imageUrl": "/assets/img/huntr-asset3.jpg",
+      "imageUrl": "/assets/img/huntr-asset3.webp",
       "imageHint": "team collaboration"
     }
   ]
