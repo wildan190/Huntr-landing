@@ -95,7 +95,7 @@ export default function UseCasePage() {
         <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4">
             <Tabs defaultValue="eprocurement" className="w-full">
-              <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-8">
+              <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 h-auto md:h-10 mb-8">
                 <TabsTrigger value="eprocurement">{t.tab1}</TabsTrigger>
                 <TabsTrigger value="esupplychain">{t.tab2}</TabsTrigger>
                 <TabsTrigger value="huntrpay">{t.tab3}</TabsTrigger>
