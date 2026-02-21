@@ -70,7 +70,7 @@ export default function UseCasePage() {
       <Header />
       <main className="flex-1 -mt-24">
         {/* Hero Section */}
-        <section className="relative py-24 sm:py-32">
+        <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-24">
           {heroImage && (
             <Image
               src={heroImage.imageUrl}
