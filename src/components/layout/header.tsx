@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { HuntrLogo } from '@/components/icons';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, ChevronDown } from 'lucide-react';
 import { useContext } from 'react';
@@ -66,8 +66,7 @@ export function Header() {
             <SheetContent side="left" className="w-full max-w-sm">
                <div className="flex items-center justify-between">
                 <Link href="/" className="flex items-center space-x-2">
-                  <HuntrLogo className="h-6 w-6 text-primary" />
-                  <span className="font-bold font-headline">Huntr</span>
+                  <Image src="/assets/img/logo-dark.png" alt="Huntr Logo" width={120} height={30} />
                 </Link>
                 <LanguageToggle />
               </div>
@@ -108,10 +107,7 @@ export function Header() {
           </Sheet>
           
           <Link href="/" className="flex items-center space-x-2">
-            <HuntrLogo className="h-6 w-6 text-primary" />
-            <span className="font-bold sm:inline-block font-headline">
-              Huntr
-            </span>
+            <Image src="/assets/img/logo-dark.png" alt="Huntr Logo" width={120} height={30} priority />
           </Link>
         </div>
 
