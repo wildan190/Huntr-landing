@@ -54,6 +54,18 @@ export default function OurCompanyPage() {
       <main className="flex-1 -mt-24">
         <PageHero title={t.title} subtitle={t.subtitle} />
 
+        {/* ABOUT HUNTR SECTION */}
+        <section className="py-16 sm:py-24 bg-primary/5">
+          <div className="container mx-auto px-4">
+            <AnimateOnScroll className="max-w-3xl mx-auto text-center fade-in zoom-in-95 duration-700">
+              <h2 className="text-3xl font-bold font-headline text-primary">{t.aboutTitle}</h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                {t.aboutText}
+              </p>
+            </AnimateOnScroll>
+          </div>
+        </section>
+
         {/* Main Content Section */}
         <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4">
@@ -80,7 +92,7 @@ export default function OurCompanyPage() {
 
         {/* Vision & Mission Section */}
         <section 
-          className="relative py-16 sm:py-24 bg-cover"
+          className="relative py-16 sm:py-24 bg-cover bg-fixed"
           style={{
             backgroundImage: "url('/assets/img/section-bg1.webp')",
             backgroundPosition: 'center'

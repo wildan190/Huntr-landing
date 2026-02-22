@@ -144,6 +144,8 @@ export const translations = {
         ourCompany: {
           title: 'Pioneering the Future of Procurement',
           subtitle: 'HUNTR was founded on a simple yet powerful idea: to revolutionize the complex world of technology procurement through innovation, clarity, and unwavering partnership.',
+          aboutTitle: 'What is HUNTR?',
+          aboutText: 'HUNTR is your ultimate Tech Procurement Provider, uniting buyers and sellers on a single ecosystem based on cloud platform. We seamlessly integrate supply and demand through our proprietary Strategic Sourcing Technology, delivering a fast, secure, and accessible supply chain solution. This is HUNTR—your "Integrated Business"',
           visionMissionTitle: 'Our Vision & Mission',
           visionTitle: 'Our Vision',
           visionText: 'To become the world\'s most trusted and intelligent integrated business platform, creating a seamless ecosystem for global commerce.',
@@ -342,6 +344,8 @@ export const translations = {
         ourCompany: {
           title: 'Merintis Masa Depan Pengadaan',
           subtitle: 'HUNTR didirikan berdasarkan ide sederhana namun kuat: merevolusi dunia pengadaan teknologi yang kompleks melalui inovasi, kejelasan, dan kemitraan yang tak tergoyahkan.',
+          aboutTitle: 'Tentang HUNTR',
+          aboutText: 'HUNTR adalah Penyedia Pengadaan Teknologi terbaik Anda, yang menyatukan pembeli dan penjual dalam satu ekosistem berbasis platform cloud. Kami mengintegrasikan penawaran dan permintaan secara mulus melalui Teknologi Pengadaan Strategis milik kami, memberikan solusi rantai pasokan yang cepat, aman, dan mudah diakses. Inilah HUNTR—"Bisnis Terintegrasi" Anda',
           visionMissionTitle: 'Visi & Misi Kami',
           visionTitle: 'Visi Kami',
           visionText: 'Menjadi platform bisnis terintegrasi yang paling tepercaya dan cerdas di dunia, menciptakan ekosistem yang mulus untuk perdagangan global.',
