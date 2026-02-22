@@ -60,7 +60,7 @@ export function Header() {
         <div className="flex items-center">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="md:hidden mr-4">
+              <Button variant="ghost" size="icon" className="md:hidden mr-4 text-white hover:bg-white/10 hover:text-white">
                 <Menu className="h-4 w-4" />
                 <span className="sr-only">{t.openMenu}</span>
               </Button>
