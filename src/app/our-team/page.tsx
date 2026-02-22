@@ -72,8 +72,8 @@ export default function OurTeamPage() {
                         </div>
                       </CardHeader>
                       <CardContent className="flex-1 flex flex-col text-center sm:text-left">
-                        <p className="text-muted-foreground mb-6 flex-1">{member.description}</p>
-                        <div className="flex items-center justify-center sm:justify-start gap-2">
+                        <p className="text-muted-foreground">{member.description}</p>
+                        <div className="mt-auto pt-6 flex items-center justify-center sm:justify-start gap-2">
                            <Button variant="outline" size="sm" asChild>
                             <a href={`mailto:${member.email}`}>
                               <Mail className="mr-2 h-4 w-4" /> Email
