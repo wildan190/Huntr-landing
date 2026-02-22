@@ -18,6 +18,7 @@ const montserrat = Montserrat({
 });
 
 const defaultUrl = 'https://huntr.id';
+const ogImageUrl = 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2V8ZW58MHx8fHwxNzY5NTUxNDUzfDA&ixlib=rb-4.1.0&q=80&w=1200&h=630';
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
@@ -35,6 +36,14 @@ export const metadata: Metadata = {
     description: translations.en.metadata.description,
     url: defaultUrl,
     siteName: 'HUNTR',
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: 'HUNTR Integrated Business Platform',
+      },
+    ],
     locale: 'en_US',
     alternateLocale: ['id_ID'],
     type: 'website',
@@ -46,6 +55,7 @@ export const metadata: Metadata = {
       template: `%s | HUNTR`,
     },
     description: translations.en.metadata.description,
+    images: [ogImageUrl],
   },
   robots: {
     index: true,
