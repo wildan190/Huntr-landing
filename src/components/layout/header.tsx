@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, ChevronDown } from 'lucide-react';
 import { useContext } from 'react';
 import { LanguageContext } from '@/context/language-context';
@@ -66,6 +66,9 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-full max-w-sm">
+              <SheetHeader className="sr-only">
+                <SheetTitle>{t.openMenu}</SheetTitle>
+              </SheetHeader>
                <div className="flex items-center justify-between">
                 <Link href="/" className="flex items-center space-x-2">
                   <Image src="/assets/img/logo-dark.png" alt="HUNTR Logo" width={120} height={30} />
