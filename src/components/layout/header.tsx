@@ -54,7 +54,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full">
-      <div className="relative mx-auto mt-4 flex h-20 max-w-4xl items-center justify-between rounded-2xl border border-white/10 bg-black/50 backdrop-blur-md px-4 shadow-lg">
+      <div className="relative mx-auto mt-4 flex h-20 max-w-4xl items-center justify-between rounded-2xl border border-white/10 bg-black/40 backdrop-blur-md px-4 shadow-lg">
         
         {/* Left side: Logo & Mobile Menu Trigger */}
         <div className="flex items-center">
@@ -66,8 +66,8 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-full max-w-sm">
-              <SheetHeader className="sr-only">
-                <SheetTitle>{t.openMenu}</SheetTitle>
+              <SheetHeader>
+                <SheetTitle className="sr-only">{t.openMenu}</SheetTitle>
               </SheetHeader>
                <div className="flex items-center justify-between">
                 <Link href="/" className="flex items-center space-x-2">
