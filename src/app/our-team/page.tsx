@@ -74,8 +74,8 @@ export default function OurTeamPage() {
                       </div>
 
                       {/* Content */}
-                      <div className="flex flex-1 flex-col p-6 sm:p-8">
-                        <div className="flex-1">
+                      <div className="flex flex-1 flex-col justify-center p-6 sm:p-8">
+                        <div>
                           <CardTitle className="font-headline text-2xl">{member.name}</CardTitle>
                           <p className="text-primary font-medium mt-1">{member.title}</p>
                           <p className="mt-4 text-muted-foreground">{member.description}</p>
