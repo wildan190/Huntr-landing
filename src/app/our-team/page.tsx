@@ -61,7 +61,7 @@ export default function OurTeamPage() {
                     <Card className="flex flex-col md:flex-row overflow-hidden">
                       
                       {/* Image */}
-                      <div className="relative w-full md:w-64 flex-shrink-0 h-80 md:h-auto">
+                      <div className="relative w-full md:w-64 flex-shrink-0 h-80">
                         {avatarImage && (
                           <Image
                             src={avatarImage.imageUrl}
