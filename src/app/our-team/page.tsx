@@ -51,44 +51,58 @@ export default function OurTeamPage() {
       <Header />
       <main className="flex-1 -mt-24">
         <PageHero title={headerT.ourTeam} subtitle={pageT.description} />
-        <section className="py-16 sm:py-24">
+        <section className="py-16 sm:py-24 relative overflow-hidden">
+          {/* Decorative background blur */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
+
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 gap-8 md:gap-12 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 gap-10 md:gap-14 max-w-5xl mx-auto">
               {teamMembers.map((member, index) => {
                 const avatarImage = PlaceHolderImages.find(p => p.id === member.avatarId);
                 return (
                   <AnimateOnScroll key={member.id} className="fade-in zoom-in-95 duration-700">
-                    <Card className="flex flex-col md:grid md:grid-cols-[auto_1fr] md:items-center">
+                    <Card className="flex flex-col md:flex-row overflow-hidden group hover:shadow-2xl transition-all duration-500 border-border/50 hover:border-primary/30 bg-card/80 backdrop-blur-sm relative">
                       
-                      {/* Image */}
-                      <div className="relative w-full md:w-64 flex-shrink-0 h-80">
+                      {/* Image Container (Left) */}
+                      <div className="relative w-full md:w-[320px] shrink-0 h-[360px] md:h-auto overflow-hidden bg-muted">
                         {avatarImage && (
                           <Image
                             src={avatarImage.imageUrl}
                             alt={member.name}
                             fill
-                            className="object-cover"
+                            className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                             data-ai-hint={avatarImage.imageHint}
+                            sizes="(max-width: 768px) 100vw, 320px"
                           />
                         )}
+                        <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </div>
 
-                      {/* Content */}
-                      <div className="p-6 sm:p-8">
-                        <div>
-                          <CardTitle className="font-headline text-2xl">{member.name}</CardTitle>
-                          <p className="text-primary font-medium mt-1">{member.title}</p>
-                          <p className="mt-4 text-muted-foreground">{member.description}</p>
+                      {/* Content (Right) */}
+                      <div className="p-8 md:p-10 flex flex-col flex-1 relative bg-card justify-center">
+                        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-3/4 bg-gradient-to-b from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:block" />
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 md:hidden" />
+                        
+                        <div className="text-left mb-5">
+                          <CardTitle className="font-headline text-2xl md:text-3xl font-bold mb-3 group-hover:text-primary transition-colors">{member.name}</CardTitle>
+                          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-semibold text-sm">
+                            {member.title}
+                          </span>
                         </div>
-                        <div className="mt-6 pt-6 border-t border-border/50 flex items-center gap-2">
-                           <Button variant="outline" size="sm" asChild>
-                            <a href={`mailto:${member.email}`}>
-                              <Mail className="mr-2 h-4 w-4" /> Email
+                        
+                        <div className="text-muted-foreground text-left leading-relaxed text-sm md:text-base mb-8 flex-1">
+                          {member.description}
+                        </div>
+                        
+                        <div className="flex items-center justify-start gap-4 mt-auto pt-6 border-t border-border/50">
+                          <Button variant="outline" className="rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300" asChild>
+                            <a href={`mailto:${member.email}`} aria-label={`Email ${member.name}`}>
+                              <Mail className="h-4 w-4 mr-2" /> Email
                             </a>
                           </Button>
-                          <Button variant="outline" size="sm" asChild>
-                            <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                              <Linkedin className="mr-2 h-4 w-4" /> LinkedIn
+                          <Button variant="outline" className="rounded-full hover:bg-[#0A66C2] hover:text-white transition-all duration-300 hover:border-[#0A66C2]" asChild>
+                            <a href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${member.name}'s LinkedIn`}>
+                              <Linkedin className="h-4 w-4 mr-2" /> LinkedIn
                             </a>
                           </Button>
                         </div>
