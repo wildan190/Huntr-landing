@@ -54,7 +54,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full">
-      <div className="relative mx-auto mt-4 flex h-20 max-w-4xl items-center justify-between rounded-2xl border border-black/10 bg-white/20 px-4 shadow-lg">
+      <div className="relative mx-auto mt-4 flex h-20 max-w-4xl items-center justify-between rounded-2xl border border-black/10 bg-white px-4 shadow-lg">
         
         {/* Left side: Logo & Mobile Menu Trigger */}
         <div className="flex items-center">
@@ -69,17 +69,17 @@ export function Header() {
               <SheetHeader>
                 <SheetTitle className="sr-only">{t.openMenu}</SheetTitle>
               </SheetHeader>
-               <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between">
                 <Link href="/" className="flex items-center space-x-2">
                   <Image src="/assets/img/logo-dark.png" alt="HUNTR Logo" width={120} height={30} />
                 </Link>
-                <LanguageToggle className="text-white hover:text-white/80" />
+                <LanguageToggle className="text-foreground hover:text-foreground/80" />
               </div>
               <Separator className="my-4"/>
 
               <div className="flex h-[calc(100%-5rem)] flex-col">
                 <div className="flex flex-col gap-2">
-                  <Link href="/" className={cn("px-2 py-2 font-medium transition-colors hover:text-primary", pathname === "/" ? "text-primary" : "text-white/80")}>
+                  <Link href="/" className={cn("px-2 py-2 font-medium transition-colors hover:text-primary", pathname === "/" ? "text-primary" : "text-foreground/80")}>
                       {t.home}
                   </Link>
                   <Accordion type="single" collapsible className="w-full">
@@ -87,13 +87,13 @@ export function Header() {
                       const isActive = link.items.some((item) => pathname.startsWith(item.href));
                       return (
                         <AccordionItem value={link.title} key={link.title} className="border-b-0">
-                          <AccordionTrigger className={cn("px-2 py-2 font-medium hover:no-underline hover:text-primary", isActive ? "text-primary" : "text-white/80")}>
+                          <AccordionTrigger className={cn("px-2 py-2 font-medium hover:no-underline hover:text-primary", isActive ? "text-primary" : "text-foreground/80")}>
                             {link.title}
                           </AccordionTrigger>
                           <AccordionContent>
                             <div className="flex flex-col gap-4 pl-6 pt-2">
                               {link.items.map((item) => (
-                                <Link key={item.href} href={item.href} className={cn("transition-colors hover:text-primary", pathname.startsWith(item.href) ? "text-primary" : "text-white/60")}>
+                                <Link key={item.href} href={item.href} className={cn("transition-colors hover:text-primary", pathname.startsWith(item.href) ? "text-primary" : "text-foreground/60")}>
                                     {item.title}
                                   </Link>
                               ))}
@@ -103,7 +103,7 @@ export function Header() {
                       )
                     })}
                   </Accordion>
-                  <Link href="/contact" className={cn("px-2 py-2 font-medium transition-colors hover:text-primary", pathname === "/contact" ? "text-primary" : "text-white/80")}>
+                  <Link href="/contact" className={cn("px-2 py-2 font-medium transition-colors hover:text-primary", pathname === "/contact" ? "text-primary" : "text-foreground/80")}>
                     {t.contact}
                   </Link>
                 </div>
