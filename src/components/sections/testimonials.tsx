@@ -50,12 +50,9 @@ export function Testimonials() {
                 <CardContent className="flex-1 flex flex-col justify-center items-center p-8 text-center">
                   <p className="text-white/80 italic">"{testimonial.quote}"</p>
                   <div className="mt-6 flex items-center gap-4">
-                    {avatarImage && (
-                       <Avatar>
-                        <AvatarImage src={avatarImage.imageUrl} alt={testimonial.name} data-ai-hint={avatarImage.imageHint} />
-                        <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
-                      </Avatar>
-                    )}
+                    <Avatar>
+                      <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                    </Avatar>
                     <div>
                       <p className="font-bold font-headline text-white">{testimonial.name}</p>
                       <p className="text-sm text-white/70">{testimonial.title}</p>
